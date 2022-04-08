@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../Button";
+import "./index.css";
 
 const Card = ({ title, img, mail, about, tag, date }) => {
   return (
