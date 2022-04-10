@@ -8,21 +8,25 @@ import Cards from "./components/Cards";
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
+  const [needUpdate, setNeedUpdate] = useState(true);
 
   useEffect(() => {
-    Promise.all([api.getAllPosts(), api.getUserInfo()]).then(
-      ([posts, user]) => {
-        setPosts(posts);
-        setUser(user);
-      }
-    );
-  }, []);
-
+    if (needUpdate === true) {
+      Promise.all([api.getAllPosts(), api.getUserInfo()]).then(
+        ([posts, user]) => {
+          setPosts(posts);
+          setUser(user);
+          setNeedUpdate(false);
+        }
+      );
+    }
+  }, [needUpdate]);
+  const userId = user != undefined ? user._id : "";
   return (
     <>
       <Header user={user} />
       <Body>
-        <Cards data={posts} />
+        <Cards data={posts} userId={userId} refresh={setNeedUpdate}/>
       </Body>
       <Footer>{"© Misha"}</Footer>
     </>

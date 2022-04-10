@@ -22,6 +22,31 @@ class Api {
       },
     }).then(onResponse);
   }
+
+  addNewPost(postdata) {
+    return fetch(`${this._baseUrl}/posts`, {
+      method: "POST",
+      headers: {
+        authorization: this._token,
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(postdata),
+    }).then(onResponse);
+  }
+
+  deletePost(postId) {
+    return fetch(`${this._baseUrl}/posts/${postId}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._token,
+      },
+    }).then(onResponse);
+  }
+
+
+
+
+  
 }
 
 const config = {
