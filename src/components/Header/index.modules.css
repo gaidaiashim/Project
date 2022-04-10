@@ -3,7 +3,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: #ffee8f;
-    padding: 20px 150px;
+    padding: 10px;
     font-weight: bold;
+    box-shadow: 0 0 10px rgba(185, 185, 2, 0.711);
+    /* height: 50px; */
 }
 

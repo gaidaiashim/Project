@@ -43,10 +43,7 @@ class Api {
     }).then(onResponse);
   }
 
-
-
-
-  
+  changeProductLike;
 }
 
 const config = {

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../Card";
 import s from "./index.modules.css";
 
-const Cards = ({ data, userId, refresh}) => {
+const Cards = ({ data, userId, refresh }) => {
   return (
     <div className={s.cards}>
       {data?.map((card) => (
@@ -10,10 +10,12 @@ const Cards = ({ data, userId, refresh}) => {
           id={card._id}
           key={card._id}
           title={card.title}
+          image={card.image}
           mail={card.email}
           about={card.text}
           tag={card.tags}
           date={card.created_at}
+          dateupdate={card.updated_at}
           author_id={card.author != undefined ? card.author._id : ""}
           user_id={userId}
           refresh={refresh}
