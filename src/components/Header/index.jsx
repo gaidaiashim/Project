@@ -1,14 +1,14 @@
 import React from "react";
 import Hello from "./Hello";
-import "./index.css";
+import s from "./index.modules.css";
+import User from "./User";
 
-const Header = ({ children }) => {
+const Header = ({ user }) => {
   return (
-    <header className="header">
-      {children}
+    <header className={s.header}>
+      <User user={user} />
       <Hello
         title="Дипломный проект"
-        homepage="google.com"
         github="https://github.com/gaidaiashim/Project"
       />
     </header>

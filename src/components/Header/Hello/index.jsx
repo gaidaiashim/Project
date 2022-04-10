@@ -1,12 +1,14 @@
 import React from "react";
-import "./index.css";
+// import "./index.css";
+import s from "./index.modules.css";
 
-const Hello = ({ title, homepage, github }) => {
+const Hello = ({ title, github }) => {
   return (
-    <div className="hello">
+    <div className={s.hello}>
       <div className="title">{title}</div>
-      <a className="homepage">{homepage}</a>
-      <a className="github">{github}</a>
+      <a href={github} className="github">
+        {github}
+      </a>
     </div>
   );
 };

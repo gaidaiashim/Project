@@ -1,0 +1,15 @@
+
+
+.button {
+    background-color: yellow;
+    border-radius: 55px;
+    border: 1px solid transparent;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    height: 32px;
+    padding: 4px 15px;
+    color: rgba(0, 0, 0, 0.85);
+    border-color: #d9d9d9;
+    font-weight: bold;
+  }
