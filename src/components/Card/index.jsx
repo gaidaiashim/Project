@@ -3,6 +3,8 @@ import Button from "../Button";
 import s from "./index.modules.css";
 import api from "../../Utils/Api";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Card = ({
   id,
@@ -17,6 +19,7 @@ const Card = ({
   user_id,
   refresh,
 }) => {
+  const navigate = useNavigate();
   const handleDelete = () => {
     Promise.all([api.deletePost(id)]).then(() => {
       console.log("deleted");
@@ -26,15 +29,17 @@ const Card = ({
 
   return (
     <div className={s.card}>
-      <div className={s.card_item}>{title}</div>
-      <div className={s.card_item}>
+      <Link to={`/details/${id}`}>
+        <div className={s.card_item}>{title}</div>
         <div className="img">
           <img src={image}></img>
         </div>
-        <div className="mail">{email}</div>
-      </div>
+      </Link>
+      <div className="mail">{email}</div>
       <div className={`${s.card_item} ${s.about}`}>{about}</div>
-      <div className={`${s.card_item} ${s.tag}`}>{tag.join(",")}</div>
+      <div className={`${s.card_item} ${s.tag}`}>{`Tags: ${tag.join(
+        ","
+      )}`}</div>
       <div className={`${s.card_item}, ${s.date}`}>
         {moment(date).format("MMMM Do YYYY")}
       </div>

@@ -11,7 +11,7 @@ const Cards = ({ data, userId, refresh }) => {
           key={card._id}
           title={card.title}
           image={card.image}
-          mail={card.email}
+          email={card.author != undefined ? card.author.email : ""}
           about={card.text}
           tag={card.tags}
           date={card.created_at}

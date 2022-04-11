@@ -15,6 +15,14 @@ class Api {
     }).then(onResponse);
   }
 
+  getPostById(id) {
+    return fetch(`${this._baseUrl}/posts/${id}`, {
+      headers: {
+        authorization: this._token,
+      },
+    }).then(onResponse);
+  }
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: {
