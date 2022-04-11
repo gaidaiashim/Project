@@ -6,20 +6,21 @@ import moment from "moment";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Card = ({
-  id,
-  title,
-  image,
-  email,
-  about,
-  tag,
-  date,
-  dateupdate,
-  author_id,
-  user_id,
-  refresh,
-}) => {
+const Card = ({ postData, refresh, user_id }) => {
+  const {
+    _id: id,
+    title,
+    image,
+    author,
+    text,
+    tags,
+    created_at: date,
+    updated_at: dateupdate,
+    likes,
+  } = postData;
+
   const navigate = useNavigate();
+
   const handleDelete = () => {
     Promise.all([api.deletePost(id)]).then(() => {
       console.log("deleted");
@@ -35,9 +36,9 @@ const Card = ({
           <img src={image}></img>
         </div>
       </Link>
-      <div className="mail">{email}</div>
-      <div className={`${s.card_item} ${s.about}`}>{about}</div>
-      <div className={`${s.card_item} ${s.tag}`}>{`Tags: ${tag.join(
+      <div className="mail">{author.email}</div>
+      <div className={`${s.card_item} ${s.about}`}>{text}</div>
+      <div className={`${s.card_item} ${s.tag}`}>{`Tags: ${tags.join(
         ","
       )}`}</div>
       <div className={`${s.card_item}, ${s.date}`}>
@@ -46,7 +47,8 @@ const Card = ({
       <div className={`${s.card_item}, ${s.date}`}>
         {moment(dateupdate).format("MMMM Do YYYY")}
       </div>
-      {author_id === user_id ? (
+      <div>{likes.length}</div>
+      {author._id === user_id ? (
         <Button text={"Удалить пост"} onClick={handleDelete} />
       ) : null}
     </div>
