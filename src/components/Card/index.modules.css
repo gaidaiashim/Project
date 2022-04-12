@@ -1,6 +1,6 @@
 .card {
-    max-width: 450px;
-    height: 250px;
+    max-width: 350px;
+    height: auto;
     flex-direction: column;
     padding-left: 12px;
     padding-right: 12px;
@@ -11,21 +11,18 @@
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
-    /* -webkit-transition: transform 0.5s ease; */
+    
+    -webkit-transition: 0.3s ease-in-out;
+    
      }
 .card:hover {
         box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
-          0px 8px 16px rgba(96, 97, 112, 0.16);
-          /* transform: scale(1.); */
-          /* transition: transform 0.5s ease; */
+        0px 8px 16px rgba(96, 97, 112, 0.16);
+        transition: 0.3s ease-in-out;
       }
 
 .about {
 text-overflow: ellipsis;
-overflow: hidden;
-/* width: inherit; */
-/* white-space: nowrap; */
-/* height: 55px; */
 overflow: hidden;
 display: -webkit-box;
 -webkit-line-clamp: 3;
@@ -35,38 +32,75 @@ height: 3.9em;
 }
 
 .card_title {
-    /* flex-direction: column; */
     padding: 5px 0px;
-    font-size: 16px;
-    font-weight: bold;
+    padding-bottom: 10px;
+    /* font-size: 16px; */
+    font-weight: 600;
     }
 
     .card a {
         text-decoration: none;
         color: black;
+        -webkit-transition: 0.3s ease-in-out;
     }
 
 .card a:hover {
     color: rgba(177, 10, 10, 0.702);
     text-decoration: none;
+    transition: 0.3s ease-in-out;
 }
 
 
 
 .tag {
-    border: 1px solid rgba(255, 0, 0, 0.5);
     border-radius: 5px;
-    padding: 2px;
+    padding: 20px 20px 20px 0px;
 }
 
 .date {
 color: rgba(0, 0, 0, 0.5);
+padding: 5px 5px 5px 0px;
 }
 
 .liked {
-    background-color: coral;
+    background-color: rgb(254, 156, 156);
+    margin: 3px;
+    padding: 3px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    border: 1px solid transparent;
+    border-color: #ff0000;
 }
 
 .notliked {
-    background-color: yellow;
+    background-color: rgb(255, 255, 136);
+    margin: 3px;
+    padding: 3px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: 900;
+    border: 1px solid transparent;
+    border-color: #cec700;
+}
+
+.card_img {
+
+    width: 100%;
+    height: auto;
+    /* padding: 20px 20px 20px 0px; */
+    border-radius: 15px;
+}
+
+.mail {
+font-weight: 500;
+padding: 10px 10px 10px 0px;  
 }

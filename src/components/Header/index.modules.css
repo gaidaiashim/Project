@@ -1,12 +1,14 @@
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    background-color: #ffee8f;
-    padding: 10px;
+    background-color: #7d7d7d36;
+    padding: 40px;
     font-weight: bold;
-    box-shadow: 0 0 10px rgba(185, 185, 2, 0.711);
-    /* height: 50px; */
+    border-bottom: 1px solid #afafaf;
+    font-family: matter,graphik,-apple-system,BlinkMacSystemFont,
+    Helvetica Neue,segoe ui,Roboto,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    color: #767676;
 }
 
 @media (max-width: 880px) {

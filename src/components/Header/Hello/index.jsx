@@ -5,7 +5,7 @@ const Hello = ({ title, github }) => {
   return (
     <div className={s.hello}>
       <div className="title">{title}</div>
-      <a href={github} className="github">
+      <a href={github} className={s.github}>
         {github}
       </a>
     </div>

@@ -40,19 +40,17 @@ const PostPage = ({}) => {
         <Button text={"Назад"} onClick={handleback} />
       </div>
       <div className={s.card}>
-        <div className={s.card_item}>{post.title}</div>
-        <div className="img">
-          <img src={post.image}></img>
+        <div className={s.post_card_title}>{post.title}</div>
+        <div className={s.post_image}>
+          <img className={s.post_image} src={post.image}></img>
         </div>
-        <div className="mail">{post.author.email}</div>
-        <div className={`${s.card_item} ${s.about}`}>{post.text}</div>
-        <div className={`${s.card_item} ${s.tag}`}>{`Tags: ${post.tags.join(
-          ","
-        )}`}</div>
-        <div className={`${s.card_item}, ${s.date}`}>
+        <div className={s.post_mail}>{post.author.email}</div>
+        <div className={s.about}>{post.text}</div>
+        <div className={s.tag}>{`Tags: ${post.tags.join(",")}`}</div>
+        <div className={s.date}>
           {`Создан: ${moment(post.date).format("L, h:mm")}`}
         </div>
-        <div className={`${s.card_item}, ${s.date}`}>
+        <div className={s.date}>
           {`Изменен: ${moment(post.dateupdate).format("L, h:mm")}`}
         </div>
         <div>{`Likes: ${post.likes.length}`}</div>

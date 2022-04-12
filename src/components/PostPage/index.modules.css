@@ -10,15 +10,40 @@
     align-items: flex-start;
     padding: 20px;
     border-radius: 10px;
-    cursor: pointer;
+    /* cursor: pointer; */
     /* -webkit-transition: transform 0.5s ease; */
       width: 1024px;
     /* max-width: calc(100% - var(--gutter) * 2); */
-    margin-right: auto;
-    margin-left: auto;
-    padding: 24px;
+    /* margin-right: auto;
+    margin-left: auto; */
+    margin: 25px;
+    border: 1px solid transparent;
+    border-color:  #afafaf;
      }
 
-.card_item {
+.post_card_title {
     font-size: 24px;
+    font-weight: bold;
+    padding-bottom:50px;
+    color: black;
+}
+.tag {
+  border-radius: 5px;
+  padding: 20px 20px 20px 0px;
+}
+
+.date {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 5px 5px 5px 0px;
+  }
+
+  .post_image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    }
+
+.post_mail {
+font-weight: 500;
+padding: 10px 10px 10px 0px;  
 }

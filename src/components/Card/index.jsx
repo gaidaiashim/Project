@@ -43,12 +43,12 @@ const Card = ({ postData, refresh, user_id }) => {
     <div className={s.card}>
       <Link to={`/details/${id}`}>
         <div className={s.card_title}>{title}</div>
-        <div className="img">
-          <img src={image}></img>
-        </div>
       </Link>
-      <div className="mail">{author.email}</div>
+      <div className={s.mail}>{author.email}</div>
       <div className={s.about}>{text}</div>
+      <div className={s.card_img}>
+        <img src={image}></img>
+      </div>
       <div className={s.tag}>{`Tags: ${tags.join(",")}`}</div>
       <div className={s.date}>{`Создан: ${moment(date).format("L")}`}</div>
       <div className={s.date}>

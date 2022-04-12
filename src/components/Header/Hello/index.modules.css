@@ -1,4 +1,20 @@
 .hello {
+    
     display: flex;
     flex-direction: column;
+   
+}
+
+.hello a {
+    -webkit-transition: 0.3s ease-in-out;
+}
+.hello a:hover {
+  color: rgba(177, 10, 10, 0.702);
+    text-decoration: none;
+    transition: 0.3s ease-in-out;  
+}
+
+.github {
+    text-decoration: none;
+    color: #767676;
 }

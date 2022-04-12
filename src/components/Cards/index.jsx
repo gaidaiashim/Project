@@ -23,12 +23,16 @@ const Cards = ({ data, userId, refresh }) => {
 
   return (
     <>
-      <Button text="Создать пост" onClick={handleOpenModal} />
-      {/* <ModalCreatePost
+      <Button
+        className={s.cards}
+        text="Создать пост"
+        onClick={handleOpenModal}
+      />
+      <ModalCreatePost
         visible={addModalOpen}
         onOk={handleAddPost}
         onCancel={handleCloseModal}
-      /> */}
+      />
       <div className={s.cards}>
         {data?.map((card) => (
           <Card
