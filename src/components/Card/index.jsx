@@ -18,36 +18,45 @@ const Card = ({ postData, refresh, user_id }) => {
     updated_at: dateupdate,
     likes,
   } = postData;
-
+  const handleLikeClick = useCallback(() => {
+    if (likes.includes(user_id)) {
+      Promise.all([api.deleteLikeOnPost(id)]).then(() => {
+        refresh(true);
+      });
+    } else {
+      Promise.all([api.addLikeOnPost(id)]).then(() => {
+        refresh(true);
+      });
+    }
+  });
   const navigate = useNavigate();
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     Promise.all([api.deletePost(id)]).then(() => {
-      console.log("deleted");
       refresh(true);
     });
-  };
+  });
+
+  const likeClass = likes.includes(user_id) ? s.liked : s.notliked;
 
   return (
     <div className={s.card}>
       <Link to={`/details/${id}`}>
-        <div className={s.card_item}>{title}</div>
+        <div className={s.card_title}>{title}</div>
         <div className="img">
           <img src={image}></img>
         </div>
       </Link>
       <div className="mail">{author.email}</div>
-      <div className={`${s.card_item} ${s.about}`}>{text}</div>
-      <div className={`${s.card_item} ${s.tag}`}>{`Tags: ${tags.join(
-        ","
-      )}`}</div>
-      <div className={`${s.card_item}, ${s.date}`}>
-        {moment(date).format("MMMM Do YYYY")}
+      <div className={s.about}>{text}</div>
+      <div className={s.tag}>{`Tags: ${tags.join(",")}`}</div>
+      <div className={s.date}>{`Создан: ${moment(date).format("L")}`}</div>
+      <div className={s.date}>
+        {`Изменен: ${moment(dateupdate).format("L")}`}
       </div>
-      <div className={`${s.card_item}, ${s.date}`}>
-        {moment(dateupdate).format("MMMM Do YYYY")}
+      <div className={likeClass} onClick={handleLikeClick}>
+        {likes.length}
       </div>
-      <div>{likes.length}</div>
       {author._id === user_id ? (
         <Button text={"Удалить пост"} onClick={handleDelete} />
       ) : null}

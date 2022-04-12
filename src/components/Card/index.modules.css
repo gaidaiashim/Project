@@ -34,10 +34,24 @@ line-height: 1.3em;
 height: 3.9em;
 }
 
-.card_item {
-    flex-direction: column;
+.card_title {
+    /* flex-direction: column; */
     padding: 5px 0px;
+    font-size: 16px;
+    font-weight: bold;
     }
+
+    .card a {
+        text-decoration: none;
+        color: black;
+    }
+
+.card a:hover {
+    color: rgba(177, 10, 10, 0.702);
+    text-decoration: none;
+}
+
+
 
 .tag {
     border: 1px solid rgba(255, 0, 0, 0.5);
@@ -47,4 +61,12 @@ height: 3.9em;
 
 .date {
 color: rgba(0, 0, 0, 0.5);
+}
+
+.liked {
+    background-color: coral;
+}
+
+.notliked {
+    background-color: yellow;
 }

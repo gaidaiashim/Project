@@ -4,7 +4,7 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import api from "./Utils/Api";
 import Cards from "./components/Cards";
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, useLocation} from "react-router-dom";
 import PostPage from "./components/PostPage";
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
   const [user, setUser] = useState();
   const [needUpdate, setNeedUpdate] = useState(true);
   const location = useLocation();
-  const navigate = useNavigate();
+ 
   const state = location.state;
   const [loggedIn, setLoggedIn] = useState(false);
 

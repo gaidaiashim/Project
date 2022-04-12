@@ -3,4 +3,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     background-color: rgba(175, 183, 26, 0.189);
+    /* width: 1024px;
+    max-width: calc(100% - var(--gutter) * 2);
+    margin-right: auto;
+    margin-left: auto; */
 }

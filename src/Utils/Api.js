@@ -51,7 +51,23 @@ class Api {
     }).then(onResponse);
   }
 
-  changeProductLike;
+  addLikeOnPost(postId) {
+    return fetch(`${this._baseUrl}/posts/likes/${postId}`, {
+      method: "PUT",
+      headers: {
+        authorization: this._token,
+      },
+    }).then(onResponse);
+  }
+
+  deleteLikeOnPost(postId) {
+    return fetch(`${this._baseUrl}/posts/likes/${postId}`, {
+      method: "DELETE",
+      headers: {
+        authorization: this._token,
+      },
+    }).then(onResponse);
+  }
 }
 
 const config = {
