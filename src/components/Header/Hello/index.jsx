@@ -4,7 +4,7 @@ import s from "./index.modules.css";
 const Hello = ({ title, github }) => {
   return (
     <div className={s.hello}>
-      <div className="title">{title}</div>
+      <div className={s.title}>{title}</div>
       <a href={github} className={s.github}>
         {github}
       </a>

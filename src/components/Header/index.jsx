@@ -6,11 +6,11 @@ import User from "./User";
 const Header = ({ user }) => {
   return (
     <header className={s.header}>
-      <User user={user} />
       <Hello
         title="Дипломный проект"
         github="https://github.com/gaidaiashim/Project"
       />
+      <User user={user} />
     </header>
   );
 };

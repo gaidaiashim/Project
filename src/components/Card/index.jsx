@@ -4,7 +4,7 @@ import s from "./index.modules.css";
 import api from "../../Utils/Api";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { HeartTwoTone } from "@ant-design/icons";
 
 const Card = ({ postData, refresh, user_id }) => {
@@ -19,7 +19,8 @@ const Card = ({ postData, refresh, user_id }) => {
     updated_at: dateupdate,
     likes,
   } = postData;
-  const handleLikeClick = useCallback(() => {
+  const handleLikeClick = useCallback((event) => {
+    event.stopPropagation();
     if (likes.includes(user_id)) {
       Promise.resolve(api.deleteLikeOnPost(id)).then(() => {
         refresh(true);
@@ -32,25 +33,34 @@ const Card = ({ postData, refresh, user_id }) => {
   });
   const navigate = useNavigate();
 
-  const handleDelete = useCallback(() => {
+  const handleDelete = useCallback((event) => {
+    event.stopPropagation(); // to prevent navigation when deleting
     Promise.resolve(api.deletePost(id)).then(() => {
       refresh(true);
     });
   });
 
+  const handleNavigate = useCallback(() => {
+    navigate(`/details/${id}`);
+  }, [navigate, id]);
+
   // const likeClass = likes.includes(user_id) ? s.liked : s.notliked;
   const heartColor = likes.includes(user_id) ? "red" : "grey";
 
   return (
-    <div className={s.card}>
-      <Link to={`/details/${id}`}>
+    <div className={s.card} onClick={handleNavigate}>
+      {/* <Link to={`/details/${id}`}>
         <div className={s.card_title}>{title}</div>
-      </Link>
+      </Link> */}
+      <div className={s.card_title}>{title}</div>
       <hr className={s.title_border}></hr>
+      {/* линия под титлом */}
+
       <div className={s.mail}>{author.email}</div>
       <div className={s.about}>{text}</div>
       <div className={s.card_img}>
-        <img className={s.card_img} src={image}></img>
+        {/* <img className={s.card_img} src={image}></img> */}
+        <img src={image}></img>
       </div>
       <div className={s.tag}>{`Tags: ${tags.join(",")}`}</div>
       <div className={s.date}>{`Создан: ${moment(date).format("L")}`}</div>
@@ -67,7 +77,7 @@ const Card = ({ postData, refresh, user_id }) => {
       </div>
       {author._id === user_id ? (
         <Button
-          className={s.buttondelete}
+          // className={s.buttondelete}
           text={"Удалить пост"}
           onClick={handleDelete}
         />

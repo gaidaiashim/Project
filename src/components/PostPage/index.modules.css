@@ -16,7 +16,7 @@
     /* max-width: calc(100% - var(--gutter) * 2); */
     /* margin-right: auto;
     margin-left: auto; */
-    margin: 25px;
+    margin-top: 20px;
     /* border: 1px solid transparent;
     border-color:  #afafaf; */
      }
@@ -48,4 +48,8 @@
 .post_mail {
 font-weight: 500;
 padding: 10px 10px 10px 0px;  
+}
+
+.post_delete_btn {
+  /* margin-bottom: 20px; */
 }

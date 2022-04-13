@@ -7,13 +7,12 @@ const User = ({ user }) => {
   }
   return (
     <div className={s.user}>
-      <img src={user.avatar} alt={user.name} className={s.avatar} />
-      <div>
-        <div className={s.user_item}>{user.email}</div>
-        <div className={s.user_item}>
-          {user.name}: {user.about}
-        </div>
+      <div className={s.user_item}>
+        {user.name}: {user.about}
+        <div>{user.email}</div>
       </div>
+      <img src={user.avatar} alt={user.name} className={s.avatar} />
+      <div></div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-// import "./index.css";
 import s from "./index.modules.css";
 
 const Body = ({ children }) => {

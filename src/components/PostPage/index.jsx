@@ -34,6 +34,12 @@ const PostPage = ({}) => {
     navigate(-1);
   };
 
+  const handleDelete = () => {
+    Promise.resolve(api.deletePost(post_id)).then(() => {
+      navigate(-1);
+    });
+  };
+
   return (
     <>
       <div>
@@ -55,8 +61,18 @@ const PostPage = ({}) => {
         </div>
         <div>{`Likes: ${post.likes.length}`}</div>
       </div>
+      <div>
+        <Button
+          // className={s.post_delete_btn}
+          text={"Удалить"}
+          onClick={handleDelete}
+        />
+      </div>
     </>
   );
 };
 
 export default PostPage;
+
+// Проблема с тем, что присутствует кнопка Удалить пост на странице поста,
+// при условии что пост не мой

@@ -14,6 +14,15 @@
     transition: 0.3s ease-in-out;  
 }
 
+/* .title {
+    color: black;
+    font-family: MD Primer Bold,Rubik,Lato,
+    Lucida Grande,Lucida Sans Unicode,Tahoma,Sans-Serif;
+    font-style: normal;
+    font-size: clamp(2rem,2rem + 1.2vw,3rem);
+    font-weight: 600;
+} */
+
 .github {
     text-decoration: none;
     color: #767676;
