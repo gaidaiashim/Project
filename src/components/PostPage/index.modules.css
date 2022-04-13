@@ -12,13 +12,13 @@
     border-radius: 10px;
     /* cursor: pointer; */
     /* -webkit-transition: transform 0.5s ease; */
-      width: 1024px;
+      width: 1290px;
     /* max-width: calc(100% - var(--gutter) * 2); */
     /* margin-right: auto;
     margin-left: auto; */
     margin: 25px;
-    border: 1px solid transparent;
-    border-color:  #afafaf;
+    /* border: 1px solid transparent;
+    border-color:  #afafaf; */
      }
 
 .post_card_title {
@@ -41,6 +41,8 @@
     width: 100%;
     height: auto;
     border-radius: 15px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
     }
 
 .post_mail {

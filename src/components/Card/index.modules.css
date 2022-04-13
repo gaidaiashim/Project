@@ -10,11 +10,8 @@
     align-items: flex-start;
     padding: 20px;
     border-radius: 10px;
-    cursor: pointer;
-    
     -webkit-transition: 0.3s ease-in-out;
-    
-     }
+   }
 .card:hover {
         box-shadow: 0px 2px 4px rgba(40, 41, 61, 0.04),
         0px 8px 16px rgba(96, 97, 112, 0.16);
@@ -34,9 +31,13 @@ height: 3.9em;
 .card_title {
     padding: 5px 0px;
     padding-bottom: 10px;
-    /* font-size: 16px; */
     font-weight: 600;
     }
+
+.title_border {
+    border: 1px solid #afafaf44;
+    width: 350px;
+}
 
     .card a {
         text-decoration: none;
@@ -62,7 +63,7 @@ color: rgba(0, 0, 0, 0.5);
 padding: 5px 5px 5px 0px;
 }
 
-.liked {
+/* .liked {
     background-color: rgb(254, 156, 156);
     margin: 3px;
     padding: 3px;
@@ -75,6 +76,7 @@ padding: 5px 5px 5px 0px;
     font-weight: 900;
     border: 1px solid transparent;
     border-color: #ff0000;
+    cursor: pointer;
 }
 
 .notliked {
@@ -90,17 +92,26 @@ padding: 5px 5px 5px 0px;
     font-weight: 900;
     border: 1px solid transparent;
     border-color: #cec700;
+    cursor: pointer;
+} */
+
+.like {
+    cursor: pointer;
+    padding-top: 10px;
 }
 
 .card_img {
 
     width: 100%;
     height: auto;
-    /* padding: 20px 20px 20px 0px; */
     border-radius: 15px;
 }
 
 .mail {
 font-weight: 500;
 padding: 10px 10px 10px 0px;  
+}
+
+.buttondelete {
+
 }

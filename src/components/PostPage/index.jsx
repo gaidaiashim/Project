@@ -12,7 +12,7 @@ const PostPage = ({}) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    Promise.all([api.getPostById(post_id)]).then(([response]) => {
+    Promise.resolve(api.getPostById(post_id)).then((response) => {
       const { message, err } = response;
 
       if (err) {

@@ -16,7 +16,7 @@ const Cards = ({ data, userId, refresh }) => {
   };
 
   const handleAddPost = () => {
-    Promise.all([api.deleteLikeOnPost(id)]).then(() => {
+    Promise.resolve(api.deleteLikeOnPost(id)).then(() => {
       refresh(true);
     });
   };
