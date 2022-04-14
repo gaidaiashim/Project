@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import api from "./Utils/Api";
 import Cards from "./components/Cards";
 import { Routes, Route, useLocation } from "react-router-dom";
-import PostPage from "./components/PostPage";
+import { PostPage, NewPostPage } from "./Pages";
 import UserContext from "./UserContext";
 
 const App = () => {
@@ -29,7 +29,8 @@ const App = () => {
       );
     }
   }, [needUpdate]);
-   return (
+
+  return (
     <UserContext.Provider value={user}>
       <Header />
       <Body>
@@ -44,13 +45,10 @@ const App = () => {
         >
           <Route
             path="/"
-            element={
-              loggedIn && (
-                <Cards data={posts} refresh={setNeedUpdate} />
-              )
-            }
+            element={loggedIn && <Cards data={posts} refresh={setNeedUpdate} />}
           />
           <Route path="details/:post_id" element={loggedIn && <PostPage />} />
+          <Route path="newPost" element={loggedIn && <NewPostPage />} />
         </Routes>
       </Body>
       <Footer>{"© Misha"}</Footer>

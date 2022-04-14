@@ -1,36 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "../Card";
 import s from "./index.modules.css";
 import Button from "../Button";
-import ModalCreatePost from "../ModalCreatePost";
+import { useNavigate } from "react-router-dom";
 
 const Cards = ({ data, refresh }) => {
-  const [addModalOpen, setAddModalOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setAddModalOpen(true);
+  const navigate = useNavigate();
+  const handleOpenAddPostPage = () => {
+    navigate("/newPost");
   };
-
-  const handleCloseModal = () => {
-    setAddModalOpen(false);
-  };
-
-  const handleAddPost = () => {
-    Promise.resolve(api.deleteLikeOnPost(id)).then(() => {
-      refresh(true);
-    });
-  };
-
   return (
     <>
       <div className={s.create_post_btn}>
-        <Button text="Создать пост" onClick={handleOpenModal} />
+        <Button text="Создать пост" onClick={handleOpenAddPostPage} />
       </div>
-      <ModalCreatePost
-        visible={addModalOpen}
-        onOk={handleAddPost}
-        onCancel={handleCloseModal}
-      />
       <div className={s.cards}>
         {data?.map((card) => (
           <Card key={card._id} postData={card} refresh={refresh} />

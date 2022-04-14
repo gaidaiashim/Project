@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "./../../Utils/Api";
 import s from "./index.modules.css";
 import moment from "moment";
-import Button from "../Button";
+import Button from "../../components/Button";
+import UserContext from "../../UserContext";
 
 const PostPage = ({}) => {
   const { post_id } = useParams();
   const [post, setPost] = useState();
   const [error, setError] = useState();
   const navigate = useNavigate();
+  const user = useContext(UserContext);
 
   useEffect(() => {
     Promise.resolve(api.getPostById(post_id)).then((response) => {
@@ -31,19 +33,19 @@ const PostPage = ({}) => {
   }
 
   const handleback = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   const handleDelete = () => {
     Promise.resolve(api.deletePost(post_id)).then(() => {
-      navigate(-1);
+      navigate("/");
     });
   };
 
   return (
     <div className={s.postpage_detailed}>
       <div>
-        <Button text={"Назад"} onClick={handleback} />
+        <Button text={"Все посты"} onClick={handleback} />
       </div>
       <div className={s.card}>
         <div className={s.post_card_title}>{post.title}</div>
@@ -62,7 +64,9 @@ const PostPage = ({}) => {
         <div>{`Likes: ${post.likes.length}`}</div>
       </div>
       <div>
-        <Button text={"Удалить"} onClick={handleDelete} />
+        {post.author._id === user._id ? (
+          <Button text={"Удалить"} onClick={handleDelete} />
+        ) : null}
       </div>
     </div>
   );
