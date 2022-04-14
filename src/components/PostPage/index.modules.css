@@ -17,6 +17,7 @@
     /* margin-right: auto;
     margin-left: auto; */
     margin-top: 20px;
+    margin-bottom: 20px;
     /* border: 1px solid transparent;
     border-color:  #afafaf; */
      }
@@ -50,6 +51,7 @@ font-weight: 500;
 padding: 10px 10px 10px 0px;  
 }
 
-.post_delete_btn {
-  /* margin-bottom: 20px; */
+.postpage_detailed {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

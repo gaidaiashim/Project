@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import s from "./index.modules.css";
+import UserContext from "../../../UserContext";
 
-const User = ({ user }) => {
+const User = () => {
+  const user = useContext(UserContext);
   if (!user) {
-    return <></>;
+    return <div className={s.user}>Loading</div>;
   }
   return (
     <div className={s.user}>
@@ -12,7 +14,6 @@ const User = ({ user }) => {
         <div>{user.email}</div>
       </div>
       <img src={user.avatar} alt={user.name} className={s.avatar} />
-      <div></div>
     </div>
   );
 };

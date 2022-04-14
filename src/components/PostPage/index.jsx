@@ -41,7 +41,7 @@ const PostPage = ({}) => {
   };
 
   return (
-    <>
+    <div className={s.postpage_detailed}>
       <div>
         <Button text={"Назад"} onClick={handleback} />
       </div>
@@ -62,13 +62,9 @@ const PostPage = ({}) => {
         <div>{`Likes: ${post.likes.length}`}</div>
       </div>
       <div>
-        <Button
-          // className={s.post_delete_btn}
-          text={"Удалить"}
-          onClick={handleDelete}
-        />
+        <Button text={"Удалить"} onClick={handleDelete} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import s from "./index.modules.css";
 import Button from "../Button";
 import ModalCreatePost from "../ModalCreatePost";
 
-const Cards = ({ data, userId, refresh }) => {
+const Cards = ({ data, refresh }) => {
   const [addModalOpen, setAddModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -23,11 +23,9 @@ const Cards = ({ data, userId, refresh }) => {
 
   return (
     <>
-      <Button
-        className={s.cards}
-        text="Создать пост"
-        onClick={handleOpenModal}
-      />
+      <div className={s.create_post_btn}>
+        <Button text="Создать пост" onClick={handleOpenModal} />
+      </div>
       <ModalCreatePost
         visible={addModalOpen}
         onOk={handleAddPost}
@@ -35,12 +33,7 @@ const Cards = ({ data, userId, refresh }) => {
       />
       <div className={s.cards}>
         {data?.map((card) => (
-          <Card
-            key={card._id}
-            postData={card}
-            user_id={userId}
-            refresh={refresh}
-          />
+          <Card key={card._id} postData={card} refresh={refresh} />
         ))}
       </div>
     </>

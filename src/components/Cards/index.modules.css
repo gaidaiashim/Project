@@ -10,6 +10,10 @@
   
   }
   
+.create_post_btn {
+  margin-top: 20px;
+}
+
   @media (max-width: 880px) {
     .cards {
       grid-template-columns: repeat(2, 1fr);

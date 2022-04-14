@@ -1,13 +1,13 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import Button from "../Button";
 import s from "./index.modules.css";
 import api from "../../Utils/Api";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
 import { HeartTwoTone } from "@ant-design/icons";
+import UserContext from "../../UserContext";
 
-const Card = ({ postData, refresh, user_id }) => {
+const Card = ({ postData, refresh }) => {
   const {
     _id: id,
     title,
@@ -19,18 +19,23 @@ const Card = ({ postData, refresh, user_id }) => {
     updated_at: dateupdate,
     likes,
   } = postData;
-  const handleLikeClick = useCallback((event) => {
-    event.stopPropagation();
-    if (likes.includes(user_id)) {
-      Promise.resolve(api.deleteLikeOnPost(id)).then(() => {
-        refresh(true);
-      });
-    } else {
-      Promise.resolve(api.addLikeOnPost(id)).then(() => {
-        refresh(true);
-      });
-    }
-  });
+  const user = useContext(UserContext);
+  const userId = user != undefined ? user._id : "";
+  const handleLikeClick = useCallback(
+    (event) => {
+      event.stopPropagation();
+      if (likes.includes(userId)) {
+        Promise.resolve(api.deleteLikeOnPost(id)).then(() => {
+          refresh(true);
+        });
+      } else {
+        Promise.resolve(api.addLikeOnPost(id)).then(() => {
+          refresh(true);
+        });
+      }
+    },
+    [userId, likes, id]
+  );
   const navigate = useNavigate();
 
   const handleDelete = useCallback((event) => {
@@ -44,8 +49,7 @@ const Card = ({ postData, refresh, user_id }) => {
     navigate(`/details/${id}`);
   }, [navigate, id]);
 
-  // const likeClass = likes.includes(user_id) ? s.liked : s.notliked;
-  const heartColor = likes.includes(user_id) ? "red" : "grey";
+  const heartColor = likes.includes(userId) ? "red" : "grey";
 
   return (
     <div className={s.card} onClick={handleNavigate}>
@@ -75,7 +79,7 @@ const Card = ({ postData, refresh, user_id }) => {
         {/* <div className={s.liketext}>{`Нравится: ${likes.length}`}</div> */}
         {likes.length}
       </div>
-      {author._id === user_id ? (
+      {author._id === userId ? (
         <Button
           // className={s.buttondelete}
           text={"Удалить пост"}

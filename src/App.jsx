@@ -4,15 +4,16 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import api from "./Utils/Api";
 import Cards from "./components/Cards";
-import { Routes, Route, useLocation} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import PostPage from "./components/PostPage";
+import UserContext from "./UserContext";
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
   const [needUpdate, setNeedUpdate] = useState(true);
   const location = useLocation();
- 
+
   const state = location.state;
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -28,10 +29,9 @@ const App = () => {
       );
     }
   }, [needUpdate]);
-  const userId = user != undefined ? user._id : "";
-  return (
-    <>
-      <Header user={user} />
+   return (
+    <UserContext.Provider value={user}>
+      <Header />
       <Body>
         <Routes
           location={
@@ -46,7 +46,7 @@ const App = () => {
             path="/"
             element={
               loggedIn && (
-                <Cards data={posts} userId={userId} refresh={setNeedUpdate} />
+                <Cards data={posts} refresh={setNeedUpdate} />
               )
             }
           />
@@ -54,7 +54,7 @@ const App = () => {
         </Routes>
       </Body>
       <Footer>{"© Misha"}</Footer>
-    </>
+    </UserContext.Provider>
   );
 };
 
