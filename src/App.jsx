@@ -4,8 +4,9 @@ import Body from "./components/Body";
 import Footer from "./components/Footer";
 import api from "./Utils/Api";
 import Cards from "./components/Cards";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { PostPage, NewPostPage } from "./Pages";
+import { Route, useLocation, Routes } from "react-router-dom";
+// import { Route, Switch } from "react-router";
+import { PostPage, NewPostPage, NotFoundPage } from "./Pages";
 import UserContext from "./UserContext";
 
 const App = () => {
@@ -30,6 +31,25 @@ const App = () => {
     }
   }, [needUpdate]);
 
+  // return (
+  //   <UserContext.Provider value={user}>
+  //     <Header />
+  //     <Body>
+  //       <Switch>
+  //         <Route path="/">
+  //           {loggedIn && <Cards data={posts} refresh={setNeedUpdate} />}
+  //         </Route>
+  //         <Route path="newPost">{loggedIn && <NewPostPage />}</Route>
+  //         <Route path="details/:post_id">{loggedIn && <PostPage />}</Route>
+  //         <Route>
+  //           <NotFoundPage />
+  //         </Route>
+  //       </Switch>
+  //     </Body>
+  //     <Footer>{"© Misha"}</Footer>
+  //   </UserContext.Provider>
+  // );
+
   return (
     <UserContext.Provider value={user}>
       <Header />
@@ -49,6 +69,7 @@ const App = () => {
           />
           <Route path="details/:post_id" element={loggedIn && <PostPage />} />
           <Route path="newPost" element={loggedIn && <NewPostPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Body>
       <Footer>{"© Misha"}</Footer>
