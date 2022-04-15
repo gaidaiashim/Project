@@ -62,10 +62,8 @@ const PostPage = ({}) => {
         <div className={s.date}>
           {`Изменен: ${moment(post.dateupdate).format("L, h:mm")}`}
         </div>
-        {/* <div>{`Likes: ${post.likes.length}`}</div> */}
         <div className={s.like}>
           <HeartTwoTone />
-          {/* <div className={s.liketext}>{`Нравится: ${likes.length}`}</div> */}
           {post.likes.length}
         </div>
       </div>
@@ -79,6 +77,3 @@ const PostPage = ({}) => {
 };
 
 export default PostPage;
-
-// Проблема с тем, что присутствует кнопка Удалить пост на странице поста,
-// при условии что пост не мой

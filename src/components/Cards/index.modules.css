@@ -9,20 +9,20 @@
     margin-right: auto;
   
   }
-  
+
 .create_post_btn {
   margin-top: 20px;
 }
 
-  @media (max-width: 880px) {
-    .cards {
-      grid-template-columns: repeat(2, 1fr);
+@media (max-width: 880px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
     }
-  }
-  
-  @media (max-width: 400px) {
-    .cards {
-      grid-template-columns: repeat(1, 1fr);
+}
+
+@media (max-width: 400px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
     }
-  }
+}
 

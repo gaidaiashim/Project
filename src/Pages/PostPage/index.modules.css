@@ -1,35 +1,27 @@
 .card {
-    /* max-width: 450px;
-    height: 250px; */
-    flex-direction: column;
-    padding-left: 12px;
-    padding-right: 12px;
-    position: relative;
-    display: flex;
-    background-color: white;
-    align-items: flex-start;
-    padding: 20px;
-    border-radius: 10px;
-    /* cursor: pointer; */
-    /* -webkit-transition: transform 0.5s ease; */
-      width: 1290px;
-    /* max-width: calc(100% - var(--gutter) * 2); */
-    /* margin-right: auto;
-    margin-left: auto; */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    /* border: 1px solid transparent;
-    border-color:  #afafaf; */
-    min-height: 770px;
-    box-shadow: 0px 20px 14px rgba(40, 41, 61, 0.25);
-     }
+  flex-direction: column;
+  padding-left: 12px;
+  padding-right: 12px;
+  position: relative;
+  display: flex;
+  background-color: white;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 10px;
+  width: 1290px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  min-height: 770px;
+  box-shadow: 0px 20px 14px rgba(40, 41, 61, 0.25);
+}
 
 .post_card_title {
-    font-size: 24px;
-    font-weight: bold;
-    padding-bottom:50px;
-    color: black;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom:50px;
+  color: black;
 }
+
 .tag {
   border-radius: 5px;
   padding: 20px 20px 20px 0px;
@@ -38,19 +30,17 @@
 .date {
   color: rgba(0, 0, 0, 0.5);
   padding: 5px 5px 5px 0px;
-  }
+}
 
-  .post_image {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-    /* padding-left: 50px;
-    padding-right: 50px; */
-    }
+.post_image {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
 
 .post_mail {
-font-weight: 600;
-padding: 10px 10px 10px 0px;  
+  font-weight: 600;
+  padding: 10px 10px 10px 0px;  
 }
 
 .postpage_detailed {

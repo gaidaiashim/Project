@@ -20,7 +20,6 @@ const NewPostPage = () => {
     const tags = data.tags.split(",");
 
     Promise.resolve(api.addNewPost({ ...data, tags })).then((newpostdata) => {
-      // todo handleError
       navigate(`/details/${newpostdata._id}`);
     });
   };

@@ -7,7 +7,7 @@
     box-shadow: 0px 20px 14px rgba(40, 41, 61, 0.25);
     margin: 100px; 
     display: flex;
-  flex-direction:column;
+    flex-direction:column;
 }
 
 .inputs {
@@ -52,15 +52,3 @@ p {
     font-size: 14px;
     color: #767676;
 }
-
-/* @media (max-width: 880px) {
-    .main {
-        max-width: fit-content;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .main {
-      max-width: fit-content;
-    }
-  } */

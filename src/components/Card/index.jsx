@@ -39,7 +39,7 @@ const Card = ({ postData, refresh }) => {
   const navigate = useNavigate();
 
   const handleDelete = useCallback((event) => {
-    event.stopPropagation(); // to prevent navigation when deleting
+    event.stopPropagation();
     Promise.resolve(api.deletePost(id)).then(() => {
       refresh(true);
     });
@@ -53,17 +53,11 @@ const Card = ({ postData, refresh }) => {
 
   return (
     <div className={s.card} onClick={handleNavigate}>
-      {/* <Link to={`/details/${id}`}>
-        <div className={s.card_title}>{title}</div>
-      </Link> */}
       <div className={s.card_title}>{title}</div>
       <hr className={s.title_border}></hr>
-      {/* линия под титлом */}
-
       <div className={s.mail}>{author.email}</div>
       <div className={s.about}>{text}</div>
       <div className={s.card_img}>
-        {/* <img className={s.card_img} src={image}></img> */}
         <img src={image}></img>
       </div>
       <div className={s.tag}>{`Теги: ${tags.join(",")}`}</div>
@@ -71,12 +65,8 @@ const Card = ({ postData, refresh }) => {
       <div className={s.date}>
         {`Изменен: ${moment(dateupdate).format("L")}`}
       </div>
-      {/* <div className={likeClass} onClick={handleLikeClick}>
-        {likes.length}
-      </div> */}
       <div className={s.like} onClick={handleLikeClick}>
         <HeartTwoTone twoToneColor={heartColor} />
-        {/* <div className={s.liketext}>{`Нравится: ${likes.length}`}</div> */}
         {likes.length}
       </div>
       {author._id === userId ? (

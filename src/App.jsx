@@ -30,26 +30,6 @@ const App = () => {
       );
     }
   }, [needUpdate]);
-
-  // return (
-  //   <UserContext.Provider value={user}>
-  //     <Header />
-  //     <Body>
-  //       <Switch>
-  //         <Route path="/">
-  //           {loggedIn && <Cards data={posts} refresh={setNeedUpdate} />}
-  //         </Route>
-  //         <Route path="newPost">{loggedIn && <NewPostPage />}</Route>
-  //         <Route path="details/:post_id">{loggedIn && <PostPage />}</Route>
-  //         <Route>
-  //           <NotFoundPage />
-  //         </Route>
-  //       </Switch>
-  //     </Body>
-  //     <Footer>{"© Misha"}</Footer>
-  //   </UserContext.Provider>
-  // );
-
   return (
     <UserContext.Provider value={user}>
       <Header />
