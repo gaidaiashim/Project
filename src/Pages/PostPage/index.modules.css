@@ -20,6 +20,8 @@
     margin-bottom: 20px;
     /* border: 1px solid transparent;
     border-color:  #afafaf; */
+    min-height: 770px;
+    box-shadow: 0px 20px 14px rgba(40, 41, 61, 0.25);
      }
 
 .post_card_title {
@@ -47,11 +49,19 @@
     }
 
 .post_mail {
-font-weight: 500;
+font-weight: 600;
 padding: 10px 10px 10px 0px;  
 }
 
 .postpage_detailed {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.loading {
+  min-height: 500px;
+}
+
+.about {
+  margin: 15px 0 15px 0;
 }

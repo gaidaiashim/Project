@@ -5,6 +5,7 @@ import s from "./index.modules.css";
 import moment from "moment";
 import Button from "../../components/Button";
 import UserContext from "../../UserContext";
+import { HeartTwoTone } from "@ant-design/icons";
 
 const PostPage = ({}) => {
   const { post_id } = useParams();
@@ -29,7 +30,7 @@ const PostPage = ({}) => {
     return <div>{error}</div>;
   }
   if (!post) {
-    return <div>Loading</div>;
+    return <div classname={s.loading}>Loading</div>;
   }
 
   const handleback = () => {
@@ -49,10 +50,10 @@ const PostPage = ({}) => {
       </div>
       <div className={s.card}>
         <div className={s.post_card_title}>{post.title}</div>
+        <div className={s.post_mail}>{post.author.email}</div>
         <div className={s.post_image}>
           <img className={s.post_image} src={post.image}></img>
         </div>
-        <div className={s.post_mail}>{post.author.email}</div>
         <div className={s.about}>{post.text}</div>
         <div className={s.tag}>{`Tags: ${post.tags.join(",")}`}</div>
         <div className={s.date}>
@@ -61,7 +62,12 @@ const PostPage = ({}) => {
         <div className={s.date}>
           {`Изменен: ${moment(post.dateupdate).format("L, h:mm")}`}
         </div>
-        <div>{`Likes: ${post.likes.length}`}</div>
+        {/* <div>{`Likes: ${post.likes.length}`}</div> */}
+        <div className={s.like}>
+          <HeartTwoTone />
+          {/* <div className={s.liketext}>{`Нравится: ${likes.length}`}</div> */}
+          {post.likes.length}
+        </div>
       </div>
       <div>
         {post.author._id === user._id ? (

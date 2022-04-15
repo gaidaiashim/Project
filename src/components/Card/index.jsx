@@ -66,7 +66,7 @@ const Card = ({ postData, refresh }) => {
         {/* <img className={s.card_img} src={image}></img> */}
         <img src={image}></img>
       </div>
-      <div className={s.tag}>{`Tags: ${tags.join(",")}`}</div>
+      <div className={s.tag}>{`Теги: ${tags.join(",")}`}</div>
       <div className={s.date}>{`Создан: ${moment(date).format("L")}`}</div>
       <div className={s.date}>
         {`Изменен: ${moment(dateupdate).format("L")}`}
@@ -80,11 +80,9 @@ const Card = ({ postData, refresh }) => {
         {likes.length}
       </div>
       {author._id === userId ? (
-        <Button
-          // className={s.buttondelete}
-          text={"Удалить пост"}
-          onClick={handleDelete}
-        />
+        <div className={s.buttondelete}>
+          <Button text={"Удалить пост"} onClick={handleDelete} />
+        </div>
       ) : null}
     </div>
   );

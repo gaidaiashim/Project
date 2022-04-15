@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import api from "../../Utils/Api";
 import { useNavigate } from "react-router-dom";
+import s from "./index.modules.css";
 
 const NewPostPage = () => {
   const {
@@ -25,30 +26,44 @@ const NewPostPage = () => {
   };
 
   return (
-    /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <div>
+    <div className={s.main}>
+      <h3>Создание поста</h3>
       <form onSubmit={handleSubmit(handleAddPost)}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <div>
+        <div className={s.inputs}>
+          <p STYLE="margin-bottom:3px">Заголовок</p>
           <input
-            placeholder="Заголовок"
+            className={s.input}
+            placeholder="Мой первый пост..."
             {...register("title", { required: true })}
           />
         </div>
-        <div>
-          <input placeholder="url картинки" {...register("image")} />
+        <div className={s.inputs}>
+          <p STYLE="margin-bottom:3px">Ссылка на картинку поста</p>
+          <input
+            className={s.input}
+            placeholder="https://..."
+            {...register("image")}
+          />
         </div>
-        <div>
-          <input placeholder="Описание" {...register("text")} />
+        <div className={s.inputs}>
+          <p STYLE="margin-bottom:3px">Текст вашего поста</p>
+          <input
+            rows="10"
+            cols="33"
+            className={s.input}
+            placeholder="Пост о том как..."
+            {...register("text", { required: true })}
+          />
         </div>
-        {/* include validation with required or other standard HTML validation rules */}
-        <div>
-          <input placeholder="Тэги" {...register("tags")} />
+        <div className={s.inputs}>
+          <p STYLE="margin-bottom:3px">Теги</p>
+          <input
+            className={s.input}
+            placeholder="POST, BEST, HIPE..."
+            {...register("tags")}
+          />
         </div>
-        {/* errors will return when field validation fails  */}
-        {/* {errors.exampleRequired && <span>This field is required</span>} */}
-
-        <input type="submit" />
+        <input className={s.button} type="submit" value="Создать" />
       </form>
     </div>
   );
