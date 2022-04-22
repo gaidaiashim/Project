@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import api from "./Utils/Api";
 import Cards from "./components/Cards";
 import { Route, useLocation, Routes } from "react-router-dom";
-// import { Route, Switch } from "react-router";
 import { PostPage, NewPostPage, NotFoundPage } from "./Pages";
 import UserContext from "./UserContext";
 
