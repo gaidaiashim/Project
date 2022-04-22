@@ -55,7 +55,7 @@ const Card = ({ postData, refresh }) => {
     <div className={s.card} onClick={handleNavigate}>
       <div className={s.card_title}>{title}</div>
       <hr className={s.title_border}></hr>
-      <div className={s.mail}>{author.email}</div>
+      <div className={s.mail}>{author ? author.email : "Нет данных"}</div>
       <div className={s.about}>{text}</div>
       <div className={s.card_img}>
         <img src={image}></img>
@@ -69,7 +69,7 @@ const Card = ({ postData, refresh }) => {
         <HeartTwoTone twoToneColor={heartColor} />
         {likes.length}
       </div>
-      {author._id === userId ? (
+      {author && author._id === userId ? (
         <div className={s.buttondelete}>
           <Button text={"Удалить пост"} onClick={handleDelete} />
         </div>
